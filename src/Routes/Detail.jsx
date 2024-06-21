@@ -21,7 +21,7 @@ const Detail = () => {
         <h4>Email: {user.email}</h4>
         <h4>Phone: {user.phone}</h4>
         <h4>Website: {user.website}</h4>
-        <img src="../../public/images/doctor.jpg" alt="Doctor" />
+        <img src="/images/doctor.jpg" alt="Doctor" />
       </div>
 
       <Button onClick={() => navigate(-1)} className='go-back' title='Go back'>Go back</Button>
