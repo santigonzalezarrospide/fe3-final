@@ -1,14 +1,31 @@
 import React from 'react'
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+import { routes } from './utils/routes'
+import { Link } from 'react-router-dom'
+import { useUserStates } from './utils/global.context';
+import Button from '../Components/Button';
 
 const Navbar = () => {
+  const { state, dispatch } = useUserStates();
+
+  const handleThemeToggle = () => {
+    dispatch({ type: 'TOGGLE_THEME' });
+  };
 
   return (
     <nav>
-      {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
-      {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
-      <button>Change theme</button>
+      <Link to={routes.home}>
+        <h4>Home</h4>
+      </Link>
+
+      <Link to={routes.contact}>
+        <h4>Contacto</h4>
+      </Link>
+
+      <Link to={routes.fav}>
+        <h4>Favoritos</h4>
+      </Link>
+
+      <Button onClick={handleThemeToggle} className='fav-button' title='Change theme'>{state.darkMode ? '💡' : '🌘'} </Button>
     </nav>
   )
 }

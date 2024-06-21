@@ -1,0 +1,11 @@
+.successMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    margin: 80px;
+    padding: 10px;
+    background-color: rgb(106, 224, 102);
+    color: white;
+}

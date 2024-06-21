@@ -1,14 +1,21 @@
 import React from 'react'
 import Card from '../Components/Card'
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+import { useUserStates } from '../Components/utils/global.context';
+import Button from '../Components/Button';
 
 const Home = () => {
+
+  const { state, dispatch } = useUserStates();
+
   return (
     <main className="" >
       <h1>Home</h1>
       <div className='card-grid'>
-        {/* Aqui deberias renderizar las cards */}
+        {state.data.map((user) => (
+          <Card item={user} key={user.id}>
+            <Button className='fav-button' onClick={() => dispatch({ type: "ADD_FAV", payload: user })} title="Add Fav">⭐</Button>
+          </Card>
+        ))}
       </div>
     </main>
   )
